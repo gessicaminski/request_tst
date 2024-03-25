@@ -10,7 +10,7 @@ nome_fantasia['NomeFantasia']=nome_fantasia['NomeFantasia'].str.lower()
 nome_fantasia['NomeFantasia']= nome_fantasia['NomeFantasia'].str.strip()
 primeiras_100_linhas = nome_fantasia.head(100) #peguei nome fantasia e os 100 primeiros 
 list_name= primeiras_100_linhas['NomeFantasia'].str.strip()
-list_name
+#list_name
 
 df= pd.DataFrame(columns=['razao_social_pesquisa','nome_empregador','data_autuado','num_processo', 'link_processo' ])
 df2=pd.DataFrame()
@@ -57,11 +57,9 @@ for empregador  in lista_empresa :
             data_autuado = data_autuado.replace('Autuado em:', '')
             df['data_autuado']= data_autuado
             n_processo = t.find_all("a", {"class": "linkProcesso"})[0].get_text()
-            n_processo
             df['num_processo']=n_processo
             link=t.find_all("a", {"class": "linkProcesso"})[0]
             link_processo =  link['href']
-            link_processo
             df['link_processo']=link_processo
     df2=pd.concat([df, df2])
 
